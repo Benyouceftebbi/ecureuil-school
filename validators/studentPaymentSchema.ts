@@ -31,7 +31,7 @@ export const studentPaymentSchema: ZodSchema<{
   nextPaymentDate:z.date(),
   amountLeftToPay:z.number(),
   paymentTitle: z.string().min(2, 'Please enter a value between 2 and 50 characters.').max(50, 'Please enter a value between 2 and 50 characters.'),
-  paymentAmount: z.number().min(2, 'Please enter a value greater than 2.').max(50000, 'Please enter a value less than or equal to 50000.'),
+  paymentAmount: z.number().min(2, 'Please enter a value greater than 2.'),
   paymentDate: z.date().refine((value: Date) => value < new Date(), { message: 'Please enter a valid date.' }),
   typeofTransaction: z.string(),
   fromWho: z.string(),
